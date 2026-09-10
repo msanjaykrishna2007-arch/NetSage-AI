@@ -1,0 +1,4 @@
+﻿# NetSage AI
+# No external Python packages are required.
+# The project uses Python standard-library modules.
+

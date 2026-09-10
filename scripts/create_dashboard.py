@@ -93,7 +93,7 @@ def main():
 <html>
 <head>
 <meta charset="UTF-8">
-<title>NetSolve AI Dashboard</title>
+<title>NetSage AI Dashboard</title>
 
 <style>
 
@@ -219,7 +219,7 @@ th {{
 <body>
 
 <header>
-    <h1>NetSolve AI</h1>
+    <h1>NetSage AI</h1>
     <p>AI-Assisted Network Troubleshooting Dashboard</p>
 </header>
 
@@ -336,10 +336,11 @@ th {{
     ) as file:
         file.write(html)
 
-    print("NetSolve AI Dashboard created.")
+    print("NetSage AI Dashboard created.")
     print(f"Open: {OUTPUT_FILE}")
 
 
 if __name__ == "__main__":
     main()
+
 

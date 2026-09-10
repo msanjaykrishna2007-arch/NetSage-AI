@@ -73,7 +73,7 @@ def main():
         writer.writeheader()
         writer.writerows(results)
 
-    print("NetSolve AI - Case Runner")
+    print("NetSage AI - Case Runner")
     print("=" * 45)
     print(f"Cases processed : {len(results)}")
     print(f"Results saved   : {OUTPUT_FILE}")
@@ -90,4 +90,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 

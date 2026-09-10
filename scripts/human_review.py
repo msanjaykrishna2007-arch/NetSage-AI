@@ -118,7 +118,7 @@ def main():
         if row["human_decision"] == "Rejected"
     )
 
-    print("NetSolve AI - Human Review")
+    print("NetSage AI - Human Review")
     print("=" * 45)
     print(f"Cases reviewed : {len(review_rows)}")
     print(f"Accepted       : {accepted}")
@@ -131,4 +131,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 

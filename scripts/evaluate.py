@@ -42,7 +42,7 @@ def main():
     ]
 
     evaluation = {
-        "project": "NetSolve AI",
+        "project": "NetSage AI",
         "dataset": {
             "total_cases": len(cases),
             "processed_cases": len(results)
@@ -80,7 +80,7 @@ def main():
     ) as file:
         json.dump(evaluation, file, indent=2)
 
-    print("NetSolve AI - Evaluation")
+    print("NetSage AI - Evaluation")
     print("=" * 45)
     print(f"Total cases       : {len(cases)}")
     print(f"Processed cases   : {len(results)}")
@@ -107,4 +107,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 

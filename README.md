@@ -1,4 +1,4 @@
-﻿\# NetSolve AI â€” Applied AI + Network Troubleshooting
+﻿\# NetSage AI â€” Applied AI + Network Troubleshooting
 
 
 
@@ -6,7 +6,7 @@
 
 
 
-NetSolve AI is an AI-assisted network troubleshooting system designed to help junior network engineers diagnose common connectivity and configuration problems.
+NetSage AI is an AI-assisted network troubleshooting system designed to help junior network engineers diagnose common connectivity and configuration problems.
 
 
 
@@ -68,7 +68,7 @@ For example, a device that cannot access another network may have:
 
 
 
-NetSolve AI organizes the troubleshooting process and provides evidence-based diagnostic suggestions.
+NetSage AI organizes the troubleshooting process and provides evidence-based diagnostic suggestions.
 
 
 
@@ -326,7 +326,7 @@ AI Diagnosis       Deterministic
 
 ```text
 
-NetSolve-AI/
+NetSage-AI/
 
 â”‚
 
@@ -476,7 +476,7 @@ For each case, the system:
 
 
 
-Human oversight is an important part of NetSolve AI.
+Human oversight is an important part of NetSage AI.
 
 
 
@@ -620,7 +620,7 @@ Open PowerShell in the project directory:
 
 ```powershell
 
-cd C:\\NetSolve-AI
+cd C:\\NetSage-AI
 
 ```
 
@@ -844,7 +844,7 @@ Future versions could include:
 
 
 
-NetSolve AI demonstrates how AI-assisted reasoning, deterministic validation, and human expertise can be combined for network troubleshooting.
+NetSage AI demonstrates how AI-assisted reasoning, deterministic validation, and human expertise can be combined for network troubleshooting.
 
 
 
@@ -857,6 +857,7 @@ The key principle of the project is:
 
 
 > AI assists the network engineer; the human engineer makes the final decision.
+
 
 
 

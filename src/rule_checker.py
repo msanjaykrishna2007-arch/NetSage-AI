@@ -161,7 +161,7 @@ if __name__ == "__main__":
 
     result = run_all_checks(sample_output)
 
-    print("NetSolve AI - Deterministic Rule Checker")
+    print("NetSage AI - Deterministic Rule Checker")
     print("=" * 45)
     print("Overall status:", result["overall_status"])
     print()
@@ -172,4 +172,5 @@ if __name__ == "__main__":
             f"{rule['status']:5} "
             f"{rule['message']}"
         )
+
 

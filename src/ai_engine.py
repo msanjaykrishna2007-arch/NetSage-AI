@@ -36,5 +36,6 @@ def diagnose_case(case):
 
 
 if __name__ == "__main__":
-    print("NetSolve AI diagnosis engine loaded successfully.")
+    print("NetSage AI diagnosis engine loaded successfully.")
+
 
