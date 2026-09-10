@@ -1,0 +1,31 @@
+case_id,issue_type,ai_diagnosis,ai_confidence,ai_evidence,human_decision,human_correction,review_reason
+C01,VLAN,VLAN 10 is not configured,High,show vlan brief: VLAN 10 missing,Accepted,VLAN 10 is not configured,AI diagnosis supported by the available case evidence.
+C02,VLAN,Port assigned to wrong VLAN,High,show interfaces fa0/3 switchport: Access VLAN 1,Accepted,Port assigned to wrong VLAN,AI diagnosis supported by the available case evidence.
+C03,VLAN,VLAN 20 missing from trunk allowed list,High,show interfaces trunk: VLAN 20 not allowed,Accepted,VLAN 20 missing from trunk allowed list,AI diagnosis supported by the available case evidence.
+C04,VLAN,Native VLAN mismatch,High,show interfaces trunk: native VLAN 10; peer native VLAN 99,Accepted,Native VLAN mismatch,AI diagnosis supported by the available case evidence.
+C05,Gateway,Incorrect default gateway,High,ipconfig: Default Gateway 192.168.20.1,Edited,Verify the client VLAN and DHCP configuration before changing the gateway.,"The captured evidence shows a gateway value, but does not prove that the gateway alone caused the failure."
+C06,Gateway,Gateway interface is shut down,High,show ip interface brief: G0/0.10 administratively down,Accepted,Gateway interface is shut down,AI diagnosis supported by the available case evidence.
+C07,Gateway,Incorrect subnet mask,High,ipconfig: IP 192.168.10.20 mask 255.255.0.0,Accepted,Incorrect subnet mask,AI diagnosis supported by the available case evidence.
+C08,Gateway,Wrong VLAN ID on router subinterface,High,show run interface G0/0.30: encapsulation dot1q 20,Accepted,Wrong VLAN ID on router subinterface,AI diagnosis supported by the available case evidence.
+C09,DHCP,DHCP pool exhausted,High,show ip dhcp pool: 0 available addresses,Edited,Check DHCP exclusions and active leases before declaring the pool exhausted.,"The pool output indicates zero available addresses, but lease and exclusion information should be verified."
+C10,DHCP,Wrong DHCP network configuration,High,show ip dhcp pool: network 192.168.10.0 255.255.255.0,Accepted,Wrong DHCP network configuration,AI diagnosis supported by the available case evidence.
+C11,DHCP,Incorrect DHCP default gateway,High,show run: default-router 192.168.20.254,Accepted,Incorrect DHCP default gateway,AI diagnosis supported by the available case evidence.
+C12,DHCP,DHCP pool overlaps static address,High,show ip dhcp binding: duplicate address observed,Accepted,DHCP pool overlaps static address,AI diagnosis supported by the available case evidence.
+C13,DNS,Incorrect DNS server configured,High,ipconfig /all: DNS Server 192.168.10.99,Accepted,Incorrect DNS server configured,AI diagnosis supported by the available case evidence.
+C14,DNS,Missing DNS record,High,nslookup server.local: NXDOMAIN,Accepted,Missing DNS record,AI diagnosis supported by the available case evidence.
+C15,DNS,DNS server network is unreachable,High,ping 192.168.10.53: Destination unreachable,Edited,Verify routing between the client VLAN and DNS server before changing DNS configuration.,"The evidence indicates that the DNS server network is unreachable, so routing should be checked first."
+C16,Routing,Missing route,High,show ip route: no route to 10.20.0.0/24,Accepted,Missing route,AI diagnosis supported by the available case evidence.
+C17,Routing,Incorrect next-hop address,High,show ip route 10.20.0.0: via 10.0.0.9,Accepted,Incorrect next-hop address,AI diagnosis supported by the available case evidence.
+C18,Routing,Broken transit interface,High,show interfaces G0/1: line protocol down,Accepted,Broken transit interface,AI diagnosis supported by the available case evidence.
+C19,Routing,Incorrect route mask,High,show ip route: route exists for 10.30.0.0/16,Accepted,Incorrect route mask,AI diagnosis supported by the available case evidence.
+C20,ACL,ACL blocks HTTPS traffic,High,show access-lists: deny tcp any host 10.10.10.50 eq 443,Edited,Confirm the ACL direction and interface placement before removing the HTTPS deny rule.,"The deny entry is evidence of filtering, but the correct remediation depends on where and why the ACL is applied."
+C21,ACL,ACL denies guest traffic,High,show access-lists: deny ip 192.168.50.0 0.0.0.255 any,Accepted,ACL denies guest traffic,AI diagnosis supported by the available case evidence.
+C22,ACL,ACL contains over-permissive rule,High,show access-lists: permit ip any 10.0.0.0 0.255.255.255,Accepted,ACL contains over-permissive rule,AI diagnosis supported by the available case evidence.
+C23,ACL,ACL applied in wrong direction,High,show run interface G0/1: ip access-group 101 out,Accepted,ACL applied in wrong direction,AI diagnosis supported by the available case evidence.
+C24,NAT,NAT inside interface not configured,High,show run: ip nat inside missing on LAN interface,Accepted,NAT inside interface not configured,AI diagnosis supported by the available case evidence.
+C25,NAT,NAT overload rule missing or inactive,High,show ip nat translations: no entries,Accepted,NAT overload rule missing or inactive,AI diagnosis supported by the available case evidence.
+C26,NAT,NAT pool exhausted,High,show ip nat statistics: pool exhausted,Accepted,NAT pool exhausted,AI diagnosis supported by the available case evidence.
+C27,NAT,Inside/outside roles incorrectly configured,High,show run interface G0/0: ip nat outside; G0/1: ip nat outside,Accepted,Inside/outside roles incorrectly configured,AI diagnosis supported by the available case evidence.
+C28,Wireless,Incorrect wireless security key,High,show wireless: SSID CampusWiFi; configured key differs from clients,Accepted,Incorrect wireless security key,AI diagnosis supported by the available case evidence.
+C29,Wireless,Guest isolation failure,High,show vlan: guest VLAN present; ACL has permit to internal LAN,Edited,Restore guest-to-internal isolation and verify the guest ACL before applying changes.,"A permit entry is evidence of excessive access, but the intended security policy must be confirmed."
+C30,Wireless,Incorrect AP VLAN mapping,High,show interfaces trunk: native/access mapping incorrect,Accepted,Incorrect AP VLAN mapping,AI diagnosis supported by the available case evidence.

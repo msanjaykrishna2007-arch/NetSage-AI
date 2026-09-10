@@ -1,0 +1,31 @@
+﻿case_id,issue_type,symptom,topology_note,show_output,expected_fault,osi_layer,concept,severity
+C01,VLAN,PC cannot reach another PC in same VLAN,"SW1 Fa0/1 connects PC1; Fa0/2 connects PC2","show vlan brief: VLAN 10 missing","VLAN 10 is not configured",2,VLAN,Medium
+C02,VLAN,PC gets IP but cannot communicate,"PC connected to SW1 Fa0/3","show interfaces fa0/3 switchport: Access VLAN 1","Port assigned to wrong VLAN",2,VLAN,Medium
+C03,VLAN,Devices in VLAN 20 cannot cross switch,"SW1 Gi0/1 connects to SW2 Gi0/1","show interfaces trunk: VLAN 20 not allowed","VLAN 20 missing from trunk allowed list",2,Trunking,High
+C04,VLAN,Inter-switch communication fails,"SW1 and SW2 connected using trunk","show interfaces trunk: native VLAN 10; peer native VLAN 99","Native VLAN mismatch",2,Trunking,High
+C05,Gateway,PC can reach local devices but not remote network,"PC VLAN 10 uses gateway 192.168.10.1","ipconfig: Default Gateway 192.168.20.1","Incorrect default gateway",3,Default Gateway,High
+C06,Gateway,All VLAN 10 clients lose gateway connectivity,"Router subinterface G0/0.10 configured","show ip interface brief: G0/0.10 administratively down","Gateway interface is shut down",3,Interface State,High
+C07,Gateway,PC has IP but cannot reach gateway,"Network uses 192.168.10.0/24","ipconfig: IP 192.168.10.20 mask 255.255.0.0","Incorrect subnet mask",3,Subnetting,Medium
+C08,Gateway,Inter-VLAN routing does not work,"Router-on-a-stick for VLAN 30","show run interface G0/0.30: encapsulation dot1q 20","Wrong VLAN ID on router subinterface",3,Inter-VLAN Routing,High
+C09,DHCP,Clients receive APIPA addresses,"DHCP server connected to routed network","show ip dhcp pool: 0 available addresses","DHCP pool exhausted",7,DHCP,High
+C10,DHCP,Clients receive addresses from wrong subnet,"VLAN 20 DHCP pool configured on router","show ip dhcp pool: network 192.168.10.0 255.255.255.0","Wrong DHCP network configuration",7,DHCP,High
+C11,DHCP,Clients receive IP but remote access fails,"DHCP provides gateway information","show run: default-router 192.168.20.254","Incorrect DHCP default gateway",3,DHCP,High
+C12,DHCP,New client gets same IP as another device,"Static server exists inside DHCP range","show ip dhcp binding: duplicate address observed","DHCP pool overlaps static address",3,IP Addressing,High
+C13,DNS,Client can ping server IP but hostname fails,"DNS server at 192.168.10.53","ipconfig /all: DNS Server 192.168.10.99","Incorrect DNS server configured",7,DNS,Medium
+C14,DNS,Website hostname does not resolve,"DNS server reachable from client","nslookup server.local: NXDOMAIN","Missing DNS record",7,DNS,Medium
+C15,DNS,Multiple clients cannot resolve names,"DNS server on separate VLAN","ping 192.168.10.53: Destination unreachable","DNS server network is unreachable",3,DNS,High
+C16,Routing,Remote LAN cannot be reached,"R1 connects LAN A to R2 LAN B","show ip route: no route to 10.20.0.0/24","Missing route",3,Routing,High
+C17,Routing,Traffic is sent toward wrong router,"R1 has static route to LAN B","show ip route 10.20.0.0: via 10.0.0.9","Incorrect next-hop address",3,Routing,High
+C18,Routing,Entire remote network becomes unreachable,"R1-R2 transit link connects routers","show interfaces G0/1: line protocol down","Broken transit interface",1,Routing,Critical
+C19,Routing,Specific subnet unreachable despite route,"R1 has route 10.30.0.0/24","show ip route: route exists for 10.30.0.0/16","Incorrect route mask",3,Routing,High
+C20,ACL,Internal users cannot access web server,"ACL applied inbound on server VLAN","show access-lists: deny tcp any host 10.10.10.50 eq 443","ACL blocks HTTPS traffic",4,ACL,High
+C21,ACL,Guest network cannot access internet,"Guest ACL configured on router","show access-lists: deny ip 192.168.50.0 0.0.0.255 any","ACL denies guest traffic",4,ACL,High
+C22,ACL,Guest users can access internal servers,"Guest VLAN should be isolated","show access-lists: permit ip any 10.0.0.0 0.255.255.255","ACL contains over-permissive rule",4,Network Security,Critical
+C23,ACL,Correct ACL exists but traffic still passes,"ACL configured on router interface","show run interface G0/1: ip access-group 101 out","ACL applied in wrong direction",4,ACL,High
+C24,NAT,Internal clients cannot access internet,"Inside LAN uses private addresses","show run: ip nat inside missing on LAN interface","NAT inside interface not configured",3,NAT,High
+C25,NAT,Internet access stopped after router change,"NAT overload configured","show ip nat translations: no entries","NAT overload rule missing or inactive",3,NAT,High
+C26,NAT,Some clients cannot access internet,"NAT pool has limited public addresses","show ip nat statistics: pool exhausted","NAT pool exhausted",3,NAT,High
+C27,NAT,NAT translations are not created,"WAN and LAN interfaces configured","show run interface G0/0: ip nat outside; G0/1: ip nat outside","Inside/outside roles incorrectly configured",3,NAT,High
+C28,Wireless,Wireless clients cannot join network,"AP broadcasts CampusWiFi","show wireless: SSID CampusWiFi; configured key differs from clients","Incorrect wireless security key",2,Wireless,Medium
+C29,Wireless,Guest Wi-Fi can access internal server,"Guest AP maps clients to VLAN 50","show vlan: guest VLAN present; ACL has permit to internal LAN","Guest isolation failure",4,Wireless Security,Critical
+C30,Wireless,Wireless clients get wrong network,"AP uplink connects to switch trunk","show interfaces trunk: native/access mapping incorrect","Incorrect AP VLAN mapping",2,Wireless VLAN,High

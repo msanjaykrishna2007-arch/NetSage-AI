@@ -1,0 +1,48 @@
+{
+  "project": "NetSolve AI",
+  "dataset": {
+    "total_cases": 30,
+    "processed_cases": 30
+  },
+  "ai_evaluation": {
+    "diagnoses_matching_expected_fault": 30,
+    "diagnosis_match_rate": 100.0
+  },
+  "issue_types": {
+    "VLAN": 4,
+    "Gateway": 4,
+    "DHCP": 4,
+    "DNS": 3,
+    "Routing": 4,
+    "ACL": 4,
+    "NAT": 4,
+    "Wireless": 3
+  },
+  "severity": {
+    "Medium": 6,
+    "High": 21,
+    "Critical": 3
+  },
+  "deterministic_checker": {
+    "PASS": 21,
+    "FAIL": 9
+  },
+  "human_review": {
+    "Accepted": 25,
+    "Edited": 5,
+    "Rejected": 0,
+    "edited_case_ids": [
+      "C05",
+      "C09",
+      "C15",
+      "C20",
+      "C29"
+    ]
+  },
+  "responsible_ai": {
+    "human_oversight_required": true,
+    "correction_cases": 5,
+    "minimum_required_corrections": 5,
+    "requirement_satisfied": true
+  }
+}
